@@ -14,7 +14,7 @@ jobs:
         run: echo "::set-output name=label_id::${{ github.event.label.id }}"
 
       - name: Slack Bot Notification
-        if: steps.check_label.outputs.label_id == '314e54'
+        if: steps.check_label.outputs.label_id == 6172170667
         uses: 8398a7/action-slack@v3
         with:
           status: custom
