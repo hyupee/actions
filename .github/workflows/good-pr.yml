@@ -18,6 +18,9 @@ jobs:
         uses: 8398a7/action-slack@v3
         with:
           status: custom
-          text: "가즈아"
+          custom_payload: |
+            {
+              text: "Custom Field Check",
+            }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
