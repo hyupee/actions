@@ -24,6 +24,6 @@ jobs:
         uses: 8398a7/action-slack@v3
         with:
           status: "custom" # Slack 메시지의 상태
-          text: "😃"
+          text: "가즈아\n가즈아"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
