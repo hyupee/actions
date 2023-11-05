@@ -13,6 +13,12 @@ jobs:
         id: check_label
         run: echo "::set-output name=label_id::${{ github.event.label.id }}"
 
+      - name: Get PR Information
+        id: pr_info
+        run: |
+          echo "::set-output name=pr_link::${{ github.event.pull_request.html_url }}"
+          echo "::set-output name=pr_title::${{ github.event.pull_request.title }}"
+
       - name: Slack Bot Notification
         if: steps.check_label.outputs.label_id == 6172170667
         uses: 8398a7/action-slack@v3
@@ -20,7 +26,7 @@ jobs:
           status: custom
           custom_payload: |
             {
-              text: "Custom Field Check",
+              text: "text: '😃 *좋은 PR 제보*\n\n💌 *<${{ steps.pr_info.outputs.pr_link }}|${{ steps.pr_info.outputs.pr_title }}>*\n\n🍀 함께 보면 좋을 PR 제보가 들어왔어요!'",
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
