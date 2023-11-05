@@ -24,6 +24,6 @@ jobs:
         uses: 8398a7/action-slack@v3
         with:
           status: "custom" # Slack 메시지의 상태
-          text: '*좋은 PR 제보*\n\n *<${{ steps.pr_info.outputs.pr_link }}|${{ steps.pr_info.outputs.pr_title }}>*\n\n 함께 보면 좋을 PR 제보가 들어왔어요!'
+          text: "😃"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
